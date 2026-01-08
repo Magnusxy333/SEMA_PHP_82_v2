@@ -1,0 +1,396 @@
+/* General code */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    background-color: rgb(221, 230, 237);
+}
+
+@font-face {
+  font-family: 'Genova';
+  src: url('Genova.otf');
+}
+
+/* header */
+
+.header {
+  height: 100px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: row;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  background-color: black;
+
+  transition: background-color 2000ms;
+}
+
+.header.sticking {
+  background-color: black;
+  font-family: "Genova";
+}
+
+.icon {
+  margin-top: 3px;
+  height: 95px;
+}
+
+.right {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  place-items: center;
+
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.areas-text {
+  font-size: 23px;
+  text-decoration: none;
+  color: rgb(157, 178, 191);
+
+  font-family: "Genova";
+}
+
+.areas-text:hover {
+  opacity: 70%;
+}
+
+#login-size{
+  font-size:36px
+}
+
+.profile-icon-header {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+/* main */
+
+/* -------------------------------------------------------------------------- */
+/* NOVOS ESTILOS PARA AS PÁGINAS DE REDEFINIÇÃO DE SENHA (new_password2.css) */
+/* -------------------------------------------------------------------------- */
+
+/* Ajusta o main para centralizar o conteúdo do formulário verticalmente */
+.main {
+    /* Mantém margin-top: 100px; que já está definido no seu código */
+    flex-grow: 1; /* Permite que a área principal ocupe o espaço restante */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza verticalmente na tela */
+    padding: 20px;
+    box-sizing: border-box;
+    /* Ajuste para contabilizar o header e footer fixos */
+    min-height: calc(100vh - 200px); /* 100vh - (altura header + altura footer) */
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+/* Container que envolve a caixa do formulário (opcional, mas bom para responsividade) */
+.new-passoword-countainer {
+    background-color: transparent; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 450px; /* Limita a largura do formulário */
+}
+
+/* A caixa principal do formulário */
+.new-passoword-box {
+    background-color: rgb(221, 230, 237);
+    border: 2px solid ;
+    border-radius: 10px;
+    padding: 40px 30px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    /* Usa a mesma família de fontes do resto do site */
+    font-family: 'Genova', sans-serif;
+}
+
+/* Estilo para o título principal do formulário */
+.text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #27374D;
+    display: block;
+    margin-bottom: 25px;
+}
+
+/* Estilo para os rótulos dos campos (ex: "Informe seu e-mail") */
+.text2 {
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: 500;
+}
+
+/* Estilo para os campos de entrada de texto/e-mail/senha */
+.input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+/* Estilo para o botão de envio */
+.send-button {
+    background-color: #27374D; /* Cor principal da sua paleta */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-family: 'Genova', sans-serif;
+}
+
+.send-button:hover {
+    background-color: #526D82; /* Efeito hover */
+}
+
+/* -------------------------------------------------------------------------- */
+/* ESTILOS PARA MENSAGENS DE STATUS (Retorno do PHP) */
+/* -------------------------------------------------------------------------- */
+/* Para garantir que as mensagens de sucesso/erro tenham bom contraste e estilo */
+.new-passoword-box p span {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Estilo para mensagem de sucesso (verde) */
+.new-passoword-box p span[style*="green"] {
+    background-color: #e6ffe6;
+    border: 2px solid;
+    color: #006400; /* Verde escuro */
+}
+
+/* Estilo para mensagem de erro (vermelho) */
+.new-passoword-box p span[style*="red"] {
+    background-color: #ffe6e6;
+    border: 1px solid #d9a3a3;
+    color: #8b0000; /* Vermelho escuro */
+}
+
+/* -------------------------------------------------------------------------- */
+/* MEDIA QUERIES PARA RESPONSIVIDADE (Ajuste em telas menores) */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .new-passoword-box {
+        padding: 30px 20px;
+        /* Remover a margem do topo se o main já estiver centralizando */
+        margin-top: 0; 
+    }
+    .text {
+        font-size: 20px;
+    }
+    .send-button {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+}
+
+/* footer */
+
+.footer{
+  height: 100px;
+
+  font-size: 25px;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+ 
+  background-color: black;
+  color: rgb(157, 178, 191);;
+  font-family: 'Genova';
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center; 
+}
+
+.staff-information2{
+  margin: 0px;
+}
+
+.staff-information{
+  margin: 0px;
+}
+
+.icons{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+}
+
+.central-link{
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  color: rgb(39, 55, 77);
+}
+
+#images{
+  height: 40px;
+}
+
+#images2{
+  height: 50px;
+}
+
+@media (max-width: 1680px) {
+  
+  .areas-text{
+    font-size: 22px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+  
+    font-family: 'Genova';
+  }
+
+  #login-size{
+  font-size: 33px
+}
+
+}
+
+@media (max-width: 1530px) {
+  
+  .areas-text{
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+  
+    font-family: 'Genova';
+  }
+
+    #login-size{
+    font-size: 31px
+  }  
+
+  .icon{
+    margin-top: 3px;
+    margin-left: 80px;
+    height: 85px;
+  }
+
+  
+
+}
+
+@media (max-width: 1390px) {
+  
+  .areas-text{
+    font-size: 17px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+  
+    font-family: 'Genova';
+  }
+
+    #login-size{
+    font-size: 30px
+  }
+
+  .icon{
+    margin-top: 3px;
+    margin-left: 80px;
+    height: 85px;
+  }
+
+}
+
+@media (max-width: 1230px) {
+  
+  .areas-text{
+    font-size: 15px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+  
+    font-family: 'Genova';
+  }
+
+    #login-size{
+  font-size: 28px
+  }
+
+  .icon{
+    margin-top: 3px;
+    margin-left: 80px;
+    height: 85px;
+  }
+
+}
+
+@media (max-width: 1130px) {
+  
+  .areas-text{
+    font-size: 12px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+  
+    font-family: 'Genova';
+  }
+
+    #login-size{
+    font-size: 25px
+  } 
+
+  .icon{
+    margin-top: 3px;
+    margin-left: 80px;
+    height: 75px;
+  }
+
+}
+
+@media (max-width: 890px) {
+  
+  .areas-text{
+    font-size: 10px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+  
+    font-family: 'Genova';
+  }
+
+    #login-size{
+    font-size: 20px
+  } 
+
+  .icon{
+    margin-top: 10px;
+    margin-left: 80px;
+    height: 65px;
+  }
+
+}

@@ -1,0 +1,445 @@
+/* location.css - COM MODO ESCURO E ESTILO MELHORADO */
+
+/* ===== VARIÁVEIS CSS PARA TEMAS ===== */
+:root {
+  /* Cores do tema claro (padrão) - Paleta SEMA */
+  --bg-primary: rgb(221, 230, 237);
+  --bg-secondary: rgb(221, 230, 237);;
+  --bg-header-footer: black;
+  --text-primary: rgb(39, 55, 77);
+  --text-secondary: rgb(157, 178, 191);
+  --text-inverse: white;
+  --accent-color: rgb(39, 55, 77);
+  --accent-secondary: #526D82;
+  --shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  --border-color: black;
+  --card-bg: #f8f9fa;
+  --gradient-primary: linear-gradient(135deg, #27374D 0%, #526D82 100%);
+  --gradient-secondary: linear-gradient(135deg, #526D82 0%, #9DB2BF 100%);
+}
+
+[data-theme="dark"] {
+  /* Cores do tema escuro - Paleta SEMA adaptada */
+  --bg-primary: #0b0629;
+  --bg-secondary: #1e1e1e;
+  --bg-header-footer: #000000;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-inverse: #ffffff;
+  --accent-color: #4a76a8;
+  --accent-secondary: #3a5a7a;
+  --shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-bg: #282828;
+  --gradient-primary: linear-gradient(135deg, #1a2530 0%, #2d3b4d 100%);
+  --gradient-secondary: linear-gradient(135deg, #2d3b4d 0%, #3a4a5a 100%);
+}
+
+/* ===== ESTILOS GERAIS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+@font-face {
+  font-family: "Genova";
+  src: url("Genova.otf");
+}
+
+/* header */
+
+.header {
+  height: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--bg-header-footer);
+  transition: background-color 2000ms;
+}
+
+.header.sticking {
+  background-color: var(--bg-header-footer);
+  font-family: "Genova";
+}
+
+.icon {
+  margin-top: 3px;
+  height: 95px;
+}
+
+.right {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  place-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.areas-text {
+  font-size: 23px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: "Genova";
+}
+
+.areas-text:hover {
+  opacity: 70%;
+}
+
+/* ===== BOTÃO DE ALTERNÂNCIA DE TEMA ===== */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--text-secondary);
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.theme-toggle .fa-sun {
+  display: none;
+  color: #ffeb3b;
+}
+
+.theme-toggle .fa-moon {
+  display: inline;
+  color: #f5f5f5;
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+  display: inline;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+  display: none;
+}
+
+/* MAIN */
+
+.main {
+  margin-top: 210px;
+  
+  display: grid;
+  grid-template-columns: auto;
+  place-items: center;
+}
+
+.container-grid {
+  padding-left: 30px;
+  padding-right: 30px;
+
+
+  display: grid;
+  align-items: center;
+  align-self: center;
+  
+
+  font-family: Genova;
+
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.title_alternate{
+  text-align: center;
+}
+
+.user-info {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+.info-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.info-value {
+  color: #27374d;
+  font-size: 18px;
+}
+
+.info-input {
+  color: #27374d;
+
+  font-size: 18px;
+  padding: 2px;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.icon_upload{
+  height: 170px;
+
+  margin-left: 30px;
+}
+
+.buttons-container{
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+}
+
+.logout-button {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  background: #4a6fc7;
+
+  font-family: "Genova";
+  
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.center-vision{
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+}
+
+.password-button{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.logout-button:hover {
+  opacity: 70%;
+}
+
+.delete-account-button{
+  font-size: 20px;
+  text-decoration: none;
+  font-family: "Genova";
+
+  border: 2px #4a6fc7 solid;
+
+  background: rgb(221, 230, 237);
+
+  color: #4a6fc7;
+
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 8px 18px;
+  margin-bottom: 20px;
+}
+
+.delete-account-button:hover {
+  opacity: 70%;
+}
+
+/* footer */
+
+.footer{
+  height: 100px;
+  font-size: 25px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--bg-header-footer);
+  color: var(--text-secondary);
+  font-family: 'Genova';
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center; 
+}
+
+.staff-information2{
+  margin: 0px;
+}
+
+.staff-information{
+  margin: 0px;
+  text-align: center;
+}
+
+.icons{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+  gap: 15px;
+}
+
+.central-link{
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  color: var(--accent-color);
+}
+
+.central-link:hover {
+  color: var(--text-secondary);
+}
+
+#images{
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+#images:hover {
+  transform: scale(1.1);
+}
+
+#images2{
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+#images2:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1680px) {
+  .areas-text {
+    font-size: 22px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+
+    font-family: "Genova";
+  }
+
+  #login-size {
+    font-size: 33px;
+  }
+}
+
+@media (max-width: 1530px) {
+  .areas-text {
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+
+    font-family: "Genova";
+  }
+
+  #login-size {
+    font-size: 31px;
+  }
+
+  .icon {
+    margin-top: 3px;
+    margin-left: 80px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 1390px) {
+  .areas-text {
+    font-size: 17px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+
+    font-family: "Genova";
+  }
+
+  #login-size {
+    font-size: 30px;
+  }
+
+  .icon {
+    margin-top: 3px;
+    margin-left: 80px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 1230px) {
+  .areas-text {
+    font-size: 15px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+
+    font-family: "Genova";
+  }
+
+  #login-size {
+    font-size: 28px;
+  }
+
+  .icon {
+    margin-top: 3px;
+    margin-left: 80px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 1130px) {
+  .areas-text {
+    font-size: 12px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+
+    font-family: "Genova";
+  }
+
+  #login-size {
+    font-size: 25px;
+  }
+
+  .icon {
+    margin-top: 3px;
+    margin-left: 80px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 890px) {
+  .areas-text {
+    font-size: 10px;
+    text-decoration: none;
+    color: rgb(157, 178, 191);
+
+    font-family: "Genova";
+  }
+
+  #login-size {
+    font-size: 20px;
+  }
+
+  .icon {
+    margin-top: 10px;
+    margin-left: 80px;
+    height: 65px;
+  }
+}

@@ -1,0 +1,196 @@
+/* ===== VARIÁVEIS CSS PARA TEMAS ===== */
+:root {
+  /* Cores do tema claro (padrão) */
+  --bg-primary: rgb(221, 230, 237);
+  --bg-secondary: white;
+  --bg-header-footer: black;
+  --text-primary: rgb(39, 55, 77);
+  --text-secondary: rgb(157, 178, 191);
+  --text-inverse: white;
+  --accent-color: rgb(39, 55, 77);
+  --button-primary: #4a6fc7;
+  --button-secondary: transparent;
+  --border-color: black;
+  --container-border: black;
+  --input-border: black;
+  --input-bg: white;
+  --input-color: #27374d;
+}
+
+[data-theme="dark"] {
+  /* Cores do tema escuro */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-header-footer: #000000;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-inverse: #121212;
+  --accent-color: #4a76a8;
+  --button-primary: #4a76a8;
+  --button-secondary: transparent;
+  --border-color: #555;
+  --container-border: #444;
+  --input-border: #555;
+  --input-bg: #2d2d2d;
+  --input-color: #e0e0e0;
+}
+
+/* General code */
+
+*{
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body{
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+@font-face {
+  font-family: 'Genova';
+  src: url('Genova.otf');
+}
+
+/* MAIN */
+
+.main {
+  margin-top: 210px;
+  
+  display: grid;
+  grid-template-columns: auto;
+  place-items: center;
+}
+
+.title {
+  font-family: Genova;
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.id {
+  font-family: Genova;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.container-grid {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: grid;
+  align-items: center;
+  align-self: center;
+  
+  font-family: Genova;
+  background-color: var(--bg-secondary);
+
+  border: 2px solid var(--container-border);
+  border-radius: 10px;
+}
+
+.input-info{
+  color: var(--input-color);
+  font-size: 18px;
+  padding: 2px;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--input-bg);
+}
+
+.buttons-container{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.back-button{
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--button-primary);
+  background: var(--button-secondary);
+
+  font-family: "Genova";
+  
+  border: 2px solid var(--button-primary);
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 10px;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover{
+  background-color: var(--button-primary);
+  color: var(--text-inverse);
+}
+
+.logout-button {
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--text-inverse);
+  background: var(--button-primary);
+
+  font-family: "Genova";
+  
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 10px;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover{
+  background-color: #3a5cb0;
+  transform: scale(1.05);
+}
+
+/* ===== BOTÃO DE ALTERNÂNCIA DE TEMA ===== */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--text-secondary);
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.theme-toggle .fa-sun {
+  display: none;
+  color: #ffeb3b;
+}
+
+.theme-toggle .fa-moon {
+  display: inline;
+  color: #f5f5f5;
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+  display: inline;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+  display: none;
+}

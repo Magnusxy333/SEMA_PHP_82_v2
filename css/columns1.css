@@ -1,0 +1,138 @@
+/* ===== VARIÁVEIS CSS PARA TEMAS ===== */
+:root {
+  /* Cores do tema claro (padrão) */
+  --bg-primary: rgb(221, 230, 237);
+  --bg-secondary: white;
+  --bg-header-footer: black;
+  --text-primary: rgb(39, 55, 77);
+  --text-secondary: rgb(157, 178, 191);
+  --text-inverse: white;
+  --accent-color: rgb(39, 55, 77);
+  --border-color: rgb(39, 55, 77);
+  --button-bg: rgb(221, 230, 237);
+  --button-hover: rgba(39, 55, 77, 0.1);
+  --container-border: black;
+}
+
+[data-theme="dark"] {
+  /* Cores do tema escuro */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-header-footer: #000000;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-inverse: #121212;
+  --accent-color: #4a76a8;
+  --border-color: #4a76a8;
+  --button-bg: #2d2d2d;
+  --button-hover: rgba(74, 118, 168, 0.2);
+  --container-border: #444;
+}
+
+/* General code */
+
+*{
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body{
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+@font-face {
+  font-family: 'Genova';
+  src: url('Genova.otf')
+}
+
+a{
+	text-decoration: none;
+}
+
+/* ===== BOTÃO DE ALTERNÂNCIA DE TEMA ===== */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--text-primary);
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.theme-toggle:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.1);
+}
+
+.theme-toggle .fa-sun {
+  display: none;
+  color: #ffeb3b;
+}
+
+.theme-toggle .fa-moon {
+  display: inline;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+  display: inline;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+  display: none;
+}
+
+/* MAIN */
+
+.align-error{
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Genova';
+  color: var(--text-primary);
+}
+
+.align-container{
+	grid-template-columns: 1fr 1fr;
+  background-color: var(--bg-secondary);
+	border: 2px solid var(--container-border);
+  border-radius: 10px;
+	margin-top: 30px;
+	padding: 50px;
+	text-align: center;
+}
+
+.back{
+	background-color: var(--button-bg);
+  font-family: 'Genova';
+  font-size: 20px;
+  color: var(--border-color);
+  padding: 7px;
+  margin-top: 15px;
+  border: solid var(--border-color) 2px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back:hover{
+	background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+.back:active{
+	transform: scale(0.95);
+  opacity: 0.8;
+}
